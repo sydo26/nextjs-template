@@ -10,4 +10,19 @@ module.exports = withPlugins([
 
   // seus outros plugins aqui
 
-]);
+], {
+  i18n: {
+    locales: ['en', 'pt'],
+    defaultLocale: 'pt',
+  },
+  reactStricMode: true,
+  poweredByHeader: false,
+  async rewrites() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+      },
+    ]
+  },
+});

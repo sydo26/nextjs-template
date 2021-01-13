@@ -1,9 +1,12 @@
 {
   "name": "nextjs-template",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "_moduleAliases": {
+    "#": "src"
+  },
   "scripts": {
-    "dev": "next dev",
+    "dev": "link-module-alias && next dev",
     "build": "next build",
     "start": "next start"
   },
@@ -12,6 +15,7 @@
     "imagemin-optipng": "^8.0.0",
     "imagemin-pngquant": "^9.0.1",
     "imagemin-svgo": "^8.0.0",
+    "link-module-alias": "^1.2.0",
     "next": "10.0.5",
     "next-compose-plugins": "^2.2.1",
     "next-optimized-images": "^2.6.2",
