@@ -1,4 +1,4 @@
-# Um template para futuros projetos nextjs
+# Um template para futuros projetos nextjs - v1.0.0
 
 ## Coloque essas configurações no settings.json do seu usuário do vscode
 
