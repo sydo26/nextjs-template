@@ -3,21 +3,28 @@
   "version": "1.0.0",
   "private": true,
   "_moduleAliases": {
-    "#": "src"
+    "#": "src",
+    "#services": "src/services",
+    "#hooks": "src/hooks",
+    "#styles": "src/styles",
+    "#types": "src/types",
+    "#assets": "src/assets"
   },
   "scripts": {
-    "dev": "link-module-alias && next dev",
+    "postinstall": "link-module-alias",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-pngquant": "^9.0.1",
     "imagemin-svgo": "^8.0.0",
-    "link-module-alias": "^1.2.0",
     "next": "10.0.5",
     "next-compose-plugins": "^2.2.1",
+    "next-i18next": "^7.0.1",
     "next-optimized-images": "^2.6.2",
     "prettier": "^2.2.1",
     "react": "17.0.1",
@@ -29,6 +36,8 @@
     "webp-loader": "^0.6.0"
   },
   "devDependencies": {
+    "@types/i18next": "^13.0.0",
+    "@types/next": "^9.0.0",
     "@types/node": "^14.14.20",
     "@types/react": "^17.0.0",
     "@types/styled-components": "^5.1.7",
@@ -43,6 +52,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-react": "^7.22.0",
+    "link-module-alias": "^1.2.0",
     "typescript": "^4.1.3"
   }
 }

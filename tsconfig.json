@@ -1,14 +1,25 @@
 {
   "paths": {
-    "#/*":["src/*"]
+    "#/*": [
+      "src/*"
+    ],
+    "#services/*": [
+      "src/services/*"
+    ],
+    "#hooks/*": [
+      "src/hooks/*"
+    ],
+    "#styles/*": [
+      "src/styles/*"
+    ],
+    "#types/*": [
+      "src/types/*"
+    ],
+    "#assets/*": [
+      "src/assets/*"
+    ]
   },
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -19,7 +30,13 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -27,6 +44,7 @@
     "**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".next"
   ]
 }

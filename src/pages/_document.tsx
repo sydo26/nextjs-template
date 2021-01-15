@@ -23,8 +23,13 @@ export default class MyDocument extends Document {
         })
 
       const initialProps = await Document.getInitialProps(ctx)
+
+      /* @ts-ignore */
+      const { language } = ctx.req
       return {
         ...initialProps,
+        /* @ts-ignore */
+        language: language || 'en',
         styles: (
           <>
             {initialProps.styles}
@@ -37,9 +42,10 @@ export default class MyDocument extends Document {
     }
   }
 
-  render(): JSX.Element {
+  public render(): JSX.Element {
+    const { language }: any = this.props
     return (
-      <Html lang="pt">
+      <Html lang={language}>
         <Head>
           <meta charSet="utf-8" />
           <link rel="ico" href="/favicon.ico" />

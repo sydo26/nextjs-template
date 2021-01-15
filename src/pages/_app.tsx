@@ -1,11 +1,18 @@
 import React from 'react'
-import { AppProps } from 'next/app'
+import { NextPage } from 'next'
+import App, { AppContext, AppProps } from 'next/app'
 
-import GlobalStyle from '#/styles/global'
+import GlobalStyle from '#styles/global'
+import theme from '#styles/theme'
 import { ThemeProvider } from 'styled-components'
-import theme from '#/styles/theme'
 
-const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+import { AppWithTranslation, appWithTranslation } from '#services/lang'
+
+/* @ts-ignore */
+const MyApp: NextPage<AppProps, AppWithTranslation> = ({
+  Component,
+  pageProps
+}) => {
   return (
     <ThemeProvider theme={theme}>
       <Component {...pageProps} />
@@ -14,4 +21,10 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   )
 }
 
-export default MyApp
+/* @ts-ignore */
+MyApp.getInitialProps = async (appContext: AppContext) => {
+  /* @ts-ignore */
+  return { ...(await App.getInitialProps(appContext)) }
+}
+
+export default appWithTranslation(MyApp)

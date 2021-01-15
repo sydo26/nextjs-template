@@ -16,9 +16,9 @@ export const Container = styled.div`
     width: 100%;
     text-align: center;
     font-family: Open Sans, sans-serif;
-    font-weight: 400;
+    font-weight: 900;
     font-size: 28px;
-    margin: 20px 0;
+    margin: 20px 0 40px;
     color: ${props => props.theme.colors.text};
   }
 

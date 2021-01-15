@@ -1,22 +1,24 @@
 import React from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { Container } from '#/styles/pages'
+import { Container } from '#styles/pages'
 
 // @ts-ignore: Cannot find module
-import perfilJPG from '#/assets/Perfil.jpg?resize&sizes[]=200&sizes[]=400&sizes[]=720'
+import perfilJPG from '#assets/Perfil.jpg?resize&sizes[]=200&sizes[]=400&sizes[]=720'
 // @ts-ignore: Cannot find module
-import GithubIcon from '#/assets/github.svg'
+import GithubIcon from '#assets/github.svg'
 // @ts-ignore: Cannot find module
-import LinkedinIcon from '#/assets/linkedin.svg'
+import LinkedinIcon from '#assets/linkedin.svg'
 // @ts-ignore: Cannot find module
-import TwitterIcon from '#/assets/twitter.svg'
+import TwitterIcon from '#assets/twitter.svg'
 
-import { ImageType } from '#/types/ImageType'
+import { ImageType } from '#types/ImageType'
+import { NextPage } from 'next'
+import { withTranslation, WithTranslation } from '#services/lang'
 
 const perfil: ImageType = perfilJPG
 
-const Home: React.FC = () => {
+const Home: NextPage<any> = ({ t }: WithTranslation) => {
   const router = useRouter()
   return (
     <Container>
@@ -24,7 +26,7 @@ const Home: React.FC = () => {
         <title>Testando</title>
       </Head>
       <h2>
-        <b>Olá mundo</b>, eu sou o Vinícius 😀
+        {t('message')} <b>Vinícius</b> 😀
       </h2>
       <img src={perfil.src} srcSet={perfil.srcSet} alt="perfil" />
       <footer>
@@ -47,4 +49,12 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home
+Home.getInitialProps = async (): Promise<{
+  namespacesRequired: string[]
+}> => {
+  return {
+    namespacesRequired: ['home']
+  }
+}
+
+export default withTranslation('home')(Home)
